@@ -1,4 +1,4 @@
-package com.webczw.query.file;
+package com.query.file;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
