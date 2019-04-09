@@ -29,7 +29,6 @@ public class FileController {
     public void findByDeptNO(HttpServletResponse response) throws Exception {
         //被下载的文件在服务器中的路径,
         String downloadFilePath = "./static/"+fileName;
-        String url = ResourceUtils.getURL("classpath:").getPath();
         File file = new File(downloadFilePath);
         if (file.exists()) {
             // 设置强制下载不打开
@@ -47,8 +46,7 @@ public class FileController {
                     outputStream.write(buffer, 0, i);
                     i = bis.read(buffer);
                 }
-logger.info("url="+url);
-                logger.info(downloadFilePath+"下载成功");
+                logger.info(fileName+"下载成功");
                 return;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -69,6 +67,6 @@ logger.info("url="+url);
                 }
             }
         }
-        logger.info(downloadFilePath+"下载失败");
+        logger.info(fileName+"下载失败");
     }
 }
